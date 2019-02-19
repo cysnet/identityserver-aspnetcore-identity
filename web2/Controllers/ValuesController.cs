@@ -116,6 +116,7 @@ namespace web2.Controllers
         [Route("attachrole")]
         public async Task<ActionResult> attachrole([FromQuery] string role, [FromQuery] string email)
         {
+            //aa
             var user = await _userManager.FindByEmailAsync(email);
             var IR = await _userManager.AddToRoleAsync(user, role);
             //await _signInManager.SignOutAsync();
