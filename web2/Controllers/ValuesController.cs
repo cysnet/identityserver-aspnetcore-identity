@@ -46,7 +46,7 @@ namespace web2.Controllers
         {
             //var user = new web2User { UserName = Input.Email, Email = Input.Email };
             //await _signInManager.SignInAsync(user, isPersistent: false);
-            var user =await _userManager.FindByNameAsync(Input.Email);
+            var user = await _userManager.FindByNameAsync(Input.Email);
             var claims = new List<Claim>
             {
                 new Claim("client_id", "cobbler.gateway.password.id.20181219"),
@@ -65,7 +65,7 @@ namespace web2.Controllers
                 ClientId = "cobbler.gateway.password.id.20181219",
                 AccessTokenType = IdentityServer4.Models.AccessTokenType.Jwt
             };
-            var tokenStr =await  _tokenServices.CreateTokenAsync(token);
+            var tokenStr = await _tokenServices.CreateTokenAsync(token);
             return Ok(tokenStr);
 
 
